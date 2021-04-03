@@ -1,20 +1,17 @@
-import React, { useState } from "react";
-import Tweet from "./Tweet";
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
-function App() {
-  const [users, setUsers] = useState([
-    { name: 'Ed', message: 'Hello there' },
-    { name: 'John', message: 'I am John Snow' },
-    { name: 'Traversy', message: 'I am awesome' }
-  ]);
-
-  return (
-    <div className="app">
-      {users.map(user => (
-        <Tweet name={user.name} message={user.message} />
-      ))}
+const App = () => {
+  
+  const APP_ID = 'dceb7501';
+  const APP_KEY = '150a19f05e09caac72a633e8f428c806';
+  
+  return(
+    <div className="App">
+        <h1>Hello React</h1>
     </div>
-  );
+  )
 }
 
 export default App;
