@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 
 const App = () => {
-  //const APP_ID = 'dceb7501';
-  //const APP_KEY = '150a19f05e09caac72a633e8f428c806';
+  const APP_ID = '30b936b2';
+  const APP_KEY = 'b6620d739a8e9522405f2ac84bbafa16';
+  
+  const [recipes, setRecipes] = useState([])
 
   useEffect(() => {
     getRecipes();
@@ -12,10 +14,10 @@ const App = () => {
   const getRecipes = async () => {
     const proxyUrl = 'https://secret-ocean-49799.herokuapp.com/';
     const response = await fetch(
-      `${proxyUrl}https://api.edamam.com/search?q=chicken&app_id=${process.env.APP_ID}&app_key=${process.env.APP_KEY}`
+      `${proxyUrl}https://api.edamam.com/search?q=chicken&app_id=${APP_ID}&app_key=${APP_KEY}`
     );
     const data = await response.json();
-    console.log(data);
+    console.log(data.hits);
   };
 
   return (
