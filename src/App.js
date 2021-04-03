@@ -1,22 +1,24 @@
 import React, { useEffect, useState } from "react";
+import Recipe from "./Recipe";
 import "./App.css";
 
 const App = () => {
-  const APP_ID = '30b936b2';
-  const APP_KEY = 'b6620d739a8e9522405f2ac84bbafa16';
-  
-  const [recipes, setRecipes] = useState([])
+  const APP_ID = "30b936b2";
+  const APP_KEY = "b6620d739a8e9522405f2ac84bbafa16";
+
+  const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
     getRecipes();
   }, []);
 
   const getRecipes = async () => {
-    const proxyUrl = 'https://secret-ocean-49799.herokuapp.com/';
+    const proxyUrl = "https://secret-ocean-49799.herokuapp.com/";
     const response = await fetch(
       `${proxyUrl}https://api.edamam.com/search?q=chicken&app_id=${APP_ID}&app_key=${APP_KEY}`
     );
     const data = await response.json();
+    setRecipes(data.hits);
     console.log(data.hits);
   };
 
@@ -28,6 +30,13 @@ const App = () => {
           Search
         </button>
       </form>
+      {recipes.map(recipe => (
+        <Recipe
+          title={recipe.recipe.label}
+          calories={recipe.recipe.calories}
+          image={recipe.recipe.image}
+        />
+      ))}
     </div>
   );
 };
