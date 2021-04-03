@@ -5,8 +5,10 @@ function App() {
   
   return (
     <div className='app'>
-      <h1>Hello React</h1>
-      <Tweet />
+      <Tweet name="Dev ED" message="This is a random tweet" likes="506"/>
+      <Tweet name="John Snow" message="I am the true king" likes=""/>
+      <Tweet name="Traversy Media" message="700k my dudes"/>
+      <Tweet name="Mosh" message="My new course is available"/>
     </div>
   );
 }
